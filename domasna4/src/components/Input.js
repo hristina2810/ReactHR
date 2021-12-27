@@ -1,33 +1,32 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
-export const Input = ({tip,placeholder,name,value,onChange,toggle}) =>{
+export const Input = ({type,placeholder,name,value,onChange,toggle,renderTextArea,changeInput}) =>{
 
     return(
-        <p>
+        <p id="input">
+        { renderTextArea ?
+            <textarea rows={12} cols={24}
+            value={value}
+            onChange={onChange}
+            />
+            :
             <input
-            type={tip}
+            type={type}
             placeholder={placeholder}
             name={name}
             value={value}
             onChange={onChange}
             />
+        }
             {name === "password" && <button type="button" className='eye-button' onClick={toggle}>
-            <i className={tip === "password" ?'fa fa-eye-slash' : 'fa fa-eye'}></i>
+            <i className={type === "password" ?'fa fa-eye-slash' : 'fa fa-eye'}></i>
       </button>}
-       </p>,
-       <p>
-           <input
-             type={tip}
-             placeholder={placeholder}
-             name={name}
-             value={value}
-             onChange={onChange}
-             />
-            {name === "text message" && <button type="button" className='comment' onClick={toggle}>
-            <i className={tip === "text message" ? 'fa-comment-o' :'fa-comments-o'}></i>
-    </button>}
-       </p>
+     
+      {name === "comment" && <button type="button" className='eye-button' onClick={changeInput}>
+      <i className={renderTextArea ?'fa fa-comment' : 'fa fa-comments-o'}></i>
+      </button>}
+    </p>
     )
     
 }
@@ -36,10 +35,12 @@ export const Input = ({tip,placeholder,name,value,onChange,toggle}) =>{
 
 
 Input.propTypes = {
-    tip:PropTypes.string.isRequired,
-    placeholder:PropTypes.string.isRequired,
-    value:PropTypes.string.isRequired,
-    onChange:PropTypes.func.isRequired,
-    name:PropTypes.string,
-    toggle:PropTypes.func
+    type:propTypes.string.isRequired,
+    placeholder:propTypes.string.isRequired,
+    value:propTypes.string.isRequired,
+    onChange:propTypes.func.isRequired,
+    name:propTypes.string,
+    toggle:propTypes.func,
+    renderTextArea:propTypes.bool,
+    changeInput:propTypes.func
 }
