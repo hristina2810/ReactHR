@@ -5,17 +5,18 @@ export const ComponentRegistration = () => {
     const[firstName,setFirstName] = useState("");
     const[lastName,setLastName] = useState("");
     const[country,setCountry] = useState("");
-    const[password,setPassword] = useState("");
     const[email,setEmail] = useState("");
+    const[password,setPassword] = useState("");
     const[showTable, setShowTable] = useState(false);
 
     function showTableContent(event){
         event.preventDefault();
-        setShowTable(true);
+        setShowTable(!showTable);
     }
     return (
         <div id="component-registration">
             <form onSubmit={showTableContent}>
+            <label>First Name:</label>
             <input
                 type="text"
                 placeholder="Enter  your First Name"
@@ -24,6 +25,7 @@ export const ComponentRegistration = () => {
             />
             <br />
             <br />
+            <label>Last Name:</label>
             <input
                 type="text"
                 placeholder="Enter your Last Name"
@@ -32,6 +34,7 @@ export const ComponentRegistration = () => {
             />
             <br />
             <br />
+            <label>Country:</label>
             <input
             type="text"
             placeholder="Enter your Country"
@@ -40,6 +43,7 @@ export const ComponentRegistration = () => {
             />
             <br/>
             <br/>
+            <label>Email:</label>
             <input
                 type="email"
                 placeholder="Enter your E-Mail"
@@ -48,6 +52,7 @@ export const ComponentRegistration = () => {
             />
             <br />
             <br />
+            <label>Password:</label>
             <input
                 type="password"
                 placeholder="Enter your Password"
@@ -56,30 +61,32 @@ export const ComponentRegistration = () => {
             />
             <br />
             <br />
-            <button type="submit">Show Table</button>
+            <button type="submit">{showTable === false ? "Show Table" : "Hide Table"}</button>
             <br />
             <br />
+            <hr/>
             </form>
             {showTable && 
             <table border="1">
-                <thead>
+                
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Password</th>
+                        <td>First Name</td>
+                        <td>Last Name</td>
+                        <td>Country</td>
+                        <td>Email</td>
+                        <td>Password</td>
                     </tr>
-                </thead>
-                <tbody>
+                
+               
                     <tr>
                         <td>{firstName}</td>
                         <td>{lastName}</td>
+                        <td>{country}</td>
                         <td>{email}</td>
                         <td>{password}</td>
                     </tr>
-                </tbody>
-            </table>}
-
+               
+                </table>}
 
         </div>
     )

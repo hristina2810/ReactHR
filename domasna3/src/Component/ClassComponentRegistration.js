@@ -1,25 +1,15 @@
 import React from "react";
 
 
-export class ClassComponentRegistration extends React.Component () {
+export class ClassComponentRegistration extends React.Component {
         constructor(props){
             super(props)
             console.log('Constructor');
-              this.state = {firstName:""};
+              this.state = {showTable:false};
         }
        UserReg = (event) => {
             this.setState({ [event.target.name] : event.target.value });
         };
-
-        changeState(event) {
-          const visible = document.getElementById("class-comp-table")
-          if (visible.style.visibility === "visible"){
-            visible.style.visibility = "hidden";
-          } else{
-            visible.style.visibility = "visible";
-          }
-        
-        }
 
         render() {
          return(     
@@ -59,16 +49,35 @@ export class ClassComponentRegistration extends React.Component () {
            name="email"
            onChange={this.UserReg}
            />
-           <button onClick={this.changeState}>Hi</button>
+           <button onClick={this.VisibleWhenClick}>Show</button>
           <hr/>
-          <div id="class-comp-table">
-           <p>First Name: {this.state.firstname}</p>
-           <p>Last Name: {this.state.lastname}</p>
-           <p>Country: {this.state.firstname}</p>
-           <p>Password: {this.state.password}</p>
-           <p>Email: {this.state.email}</p>
+
+          {this.state.showTable && 
+
+       <table>
+    <thead>
+         <tr>
+           <td>Firstname</td>
+           <td>Lastname</td>
+           <td>Country</td>
+           <td>Email</td>
+           <td>Password</td>
+           </tr>
+           </thead>
+       
+          <tbody>
+         <tr>
+           <td>{this.state.firstname}</td>
+           <td>{this.state.lastname}</td>
+           <td>{this.state.country}</td>
+           <td>{this.state.email}</td>
+           <td>{this.state.password}</td>
+           </tr>
+           </tbody>
+       </table>
+       }
          </div>
-           </div>         
-         );
+              
+         )
          }
         }
