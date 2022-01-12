@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Input} from './Input';
-import { Dropdown } from './Dropdown';
+import {Dropdown} from './Dropdown';
 
 export function Login() {
     const [username,setUsername] = useState("");
@@ -25,6 +25,7 @@ function changeFieldType() {
     setFieldType(fieldType === "password" ? 'text' : 'password'
     )
 }
+
 function changeInput(){
     setlongComment(
         
@@ -78,5 +79,4 @@ return(
     </div>
 
 )
-
 }
