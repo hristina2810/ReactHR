@@ -5,7 +5,7 @@ export function Nav() {
     return(
         <ul id="nav">
             <li><Link to="/cake">Cake</Link></li>
-            <lil><Link to="/comments">Comments</Link></lil>
+            <li><Link to="/comments">Comments</Link></li>
 
         </ul>
     )

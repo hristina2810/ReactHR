@@ -20,7 +20,7 @@ const CakeReducer = (state=initialState, action) =>{
              else{
                  return{
                      ...state,
-                     cake: state.cakes -action.payload,
+                     cakes: state.cakes -action.payload,
                      message: undefined
                  }
              }
@@ -44,6 +44,7 @@ const CakeReducer = (state=initialState, action) =>{
                  return{
                      ...state,
                      cakes: action.payload,
+                     message: undefined
                  }
                  default: return state
     } 

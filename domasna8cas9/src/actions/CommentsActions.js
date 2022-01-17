@@ -1,4 +1,4 @@
-import {FETCH_COMMENTS_FAIL,FETCH_COMMENTS_SUCCESS,DELETE_COMMENT} from './../constants/CommentsConstants';
+import {FETCH_COMMENTS_FAIL,FETCH_COMMENTS_SUCCESS,DELETE_COMMENT} from './../constants/CommentConstants';
 
 export const fetchCommentsSuccess = (comments) => { 
     return{
@@ -19,8 +19,6 @@ export const deleteComment = (id) => {
         fetch("https://jsonplaceholder.typicode.com/comments/" + id, {
             method: "DELETE",
     })
-    .then(res => res.json())
-    .then(json => dispatch(deleteComment(json)))
     .catch((error) => dispatch(fetchCommentsFail(error)))
 
     dispatch({
