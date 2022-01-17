@@ -1,6 +1,6 @@
 import React from 'react';
 import ReduxClass from './ReduxClass';
-import ReduxFunc from './ReduxFunc';
+import {ReduxFunc} from './ReduxFunc';
 
 export function App () {
     return (

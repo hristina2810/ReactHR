@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { driveCar,driveBus } from './../actions/DriveAction';
 
-class ReduxClass extends React.Component {
+ export class ReduxClass extends React.Component {
 
 componentDidMount() {
     this.props.getCar();
